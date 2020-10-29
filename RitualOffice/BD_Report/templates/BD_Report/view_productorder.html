@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ item.title }}
+{% endblock %}
+
+{% block container_title %}<h3>Информация о заказе</h3>{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+    <div class="card-header">
+        Номер заказа: {{ item.productOrderID }}
+    </div>
+    <div class="card-body">
+        <div class="media">
+            <div class="media-body">
+                <p class="card-text">Клиент: {{ item.clientID }}</p>
+                <p class="card-text">Товар: {{ item.productID }}</p>
+                <p class="card-text">Подтверждение опалты: {{ item.is_paid }}</p>
+                <p class="card-text">Сумма: {{ item.calculate_sum }}</p>
+                <p class="card-text">Дата: {{ item.date }}</p>
+                <p class="card-text">Время: {{ item.time }}</p>
+            </div>
+        </div>
+
+    </div>
+        <div class="card-footer text-muted" align="center">
+        <a href="{% url 'edit_productorder' item.pk %}">Изменить</a>
+        <a href="{% url 'delete_productorder' item.pk %}">Удалить</a>
+    </div>
+</div>
+{% endblock %}

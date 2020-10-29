@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+Удаление заказа
+{% endblock %}
+
+{% block container_title %}
+<h1>Удаление заказа</h1>
+{% endblock %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <p>Уверены что хотите удалить заказ клиента {{ object }}?</p>
+    <button type="submit" class="btn btn-primary btn-block">Удалить</button>
+</form>
+{% endblock %}

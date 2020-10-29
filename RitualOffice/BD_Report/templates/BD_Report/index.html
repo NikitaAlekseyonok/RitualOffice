@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+{% block container_title %} <h2>{{title}}</h2> {% endblock %}
+{% block content %}
+        {% for item in orders %}
+                <div class="col-sm-3 mb-5">
+                    <div class="card">
+                        <div class="card-header">
+                            Номер заказа: {{ item.orderID }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.clientID }}</h5>
+                            <p class="card-text">{{ item.hallID }}</p>
+                            <p class="card-text">{{ item.is_paid }}</p>
+                            <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            {{ item.date }} {{ item.time }}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+{% block container_title %} <h2>{{title}}</h2> {% endblock %}
+{% block content %}
+        {% for client in clients %}
+                <div class="col-sm-3 mb-5">
+                    <div class="card">
+                        <div class="card-header">
+                            Номер клиента: {{ client.clientID }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ client.surname }}  {{ client.name }}</h5>
+                            <a href="{{ client.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            {{ client.phoneNumber }}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+{% endblock %}

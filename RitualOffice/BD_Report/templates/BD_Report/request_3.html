@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block container_title %} <h5>Запрос 3. Определить должности и количесвто работников на этих должностях.</h5> {% endblock %}
+
+
+{% block content %}
+    <table border="1" cellspacing="5" cellpadding="10">
+       <tr>
+        <th>Наименование должности</th><th>Кол-во</th>
+       </tr>
+        {% for type, count in zip %}
+        <tr>
+            <th>{{ type.name }}</th><th>{{ count }}</th>
+        </tr>
+            {% endfor %}
+    </table>
+{% endblock %}

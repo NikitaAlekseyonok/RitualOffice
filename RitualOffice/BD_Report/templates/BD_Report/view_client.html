@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ client_item.title }}
+{% endblock %}
+
+{% block container_title %}<h3>Информация о клиенте</h3>{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+    <div class="card-header">
+        Номер клиента: {{ client_item.clientID }}</a>
+    </div>
+    <div class="card-body">
+        <div class="media">
+            <div class="media-body">
+                <p class="card-text">Фамилия: {{ client_item.surname }}</p>
+                <p class="card-text">Имя:{{ client_item.name}}</p>
+                <p class="card-text">Отчество: {{ client_item.patronymic }}</p>
+                <p class="card-text">Фамилия усопшего: {{ client_item.deceased_surname }}</p>
+                <p class="card-text">Имя усопшего:{{ client_item.deceased_name}}</p>
+                <p class="card-text">Отчество усопшего: {{ client_item.deceased_patronymic }}</p>
+                <p class="card-text">Номер Телефона: {{ client_item.phoneNumber}}</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-footer text-muted" align="center">
+        <a href="{% url 'edit_client' client_item.pk %}">Изменить</a>
+        <a href="{% url 'delete_client' client_item.pk %}">Удалить</a>
+    </div>
+</div>
+{% endblock %}
